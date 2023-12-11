@@ -1,12 +1,12 @@
-import { equal } from "node:assert";
-import { after, before, describe, it } from "node:test";
-import process from "node:process";
+import { equal } from 'node:assert';
+import { after, before, describe, test } from 'node:test';
+import process from 'node:process';
 
-import { findpath } from "nw";
-import selenium from "selenium-webdriver";
-import chrome from "selenium-webdriver/chrome.js";
+import { findpath } from 'nw';
+import selenium from 'selenium-webdriver';
+import chrome from 'selenium-webdriver/chrome.js';
 
-describe("NW.js Selenium test suite example", async () => {
+describe('NW.js Selenium test suite example', async () => {
     let driver = undefined;
 
     /**
@@ -16,19 +16,23 @@ describe("NW.js Selenium test suite example", async () => {
         // Initialise Chrome options
         const options = new chrome.Options();
 
-        options.addArguments([
-            // File path to NW.js project.
-            // Requires a package.json and index.html.
-            // In this example, we assume the present
-            // working directory to be the project root. 
-            `nwapp=${process.cwd()}`,
-            // Good if you want to run automated tests
-            // in a CI environment. Unset if running locally.
-            "headless=new",
-        ]);
+        const seleniumArguments = [];
+
+        // File path to NW.js project (requires a
+        // package.json for an NW.js project).
+        // In this example, we assume the current
+        // working directory (cwd) to be the project root.
+        seleniumArguments.push(`nwapp=${process.cwd()}`);
+
+        // Run in headless mode when in CI environment.
+        if (process.env.CI) {
+            seleniumArguments.push('headless=new');
+        }
+
+        options.addArguments(seleniumArguments);
 
         // Pass file path of NW.js ChromeDriver to ServiceBuilder
-        const service = new chrome.ServiceBuilder(findpath("chromedriver")).build();
+        const service = new chrome.ServiceBuilder(findpath('chromedriver')).build();
 
         // Create a new session using the Chromium options
         // and DriverService defined above.
@@ -36,14 +40,22 @@ describe("NW.js Selenium test suite example", async () => {
     });
 
     /**
-     * Get text via element's id and assert it is equal.
+     * Get text via element's ID and assert it is equal.
      */
-    it("finds 'Hello, World!' text by ID ", async () => {
-        const textElement = await driver.findElement(selenium.By.id("test"));
+    test('Hello, World text by ID', async () => {
+        const textElement = await driver.findElement(selenium.By.id('test'));
 
         const text = await textElement.getText();
 
-        equal(text, "Hello, World!");
+        equal(text, 'Hello, World!');
+    });
+
+    test('NW.js flavor is printed in the DOM', async () => {
+        const textElement = await driver.findElement(selenium.By.id('flavor'));
+
+        const text = await textElement.getText();
+
+        equal(text, 'sdk');
     });
 
     /**

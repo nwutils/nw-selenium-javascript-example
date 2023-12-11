@@ -3,8 +3,11 @@
     <head>
         <title>NW.js Selenium Example</title>
     </head>
-
     <body>
         <span id="test">Hello, World!</span>
+        <span id="flavor"></span>
+        <script>
+            document.getElementById('flavor').innerText = process.versions['nw-flavor'];
+        </script>
     </body>
 </html>
