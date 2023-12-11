@@ -1,13 +1,14 @@
 {
 	"name": "nw-selenium-example",
-	"version": "0.0.0",
+	"version": "1.0.0",
 	"main": "index.html",
 	"private": true,
 	"devDependencies": {
-		"nw": "^0.82.0",
+		"nw": "0.82.0-sdk",
 		"selenium-webdriver": "^4.16.0"
 	},
 	"scripts": {
-		"start": "node --test index.mjs"
+		"start": "nw .",
+		"test": "node --test index.mjs"
 	}
 }
