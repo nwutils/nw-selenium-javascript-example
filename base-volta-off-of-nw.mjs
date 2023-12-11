@@ -5,7 +5,7 @@ import * as url from 'url';
 let https;
 try {
   https = await import('node:https');
-} catch (err) {
+} catch (error) {
   console.error('https support is disabled!');
 }
 
@@ -41,8 +41,8 @@ function getVersions () {
       });
     });
 
-    request.on('error', (err) => {
-      reject(err);
+    request.on('error', (error) => {
+      reject(error);
     });
   });
 }
@@ -57,8 +57,8 @@ function getLocalNwManifest () {
         let data = await fs.readFile(nwManifest, 'binary');
         data = JSON.parse(data);
         resolve(data);
-      } catch (err) {
-        reject(err);
+      } catch (error) {
+        reject(error);
       }
     } else {
       reject(new Error('NW.js manifest file does not seem to exist'));
@@ -101,8 +101,8 @@ function getManifest () {
         let data = await fs.readFile(manifest, 'binary');
         data = JSON.parse(data);
         resolve(data);
-      } catch (err) {
-        reject(err);
+      } catch (error) {
+        reject(error);
       }
     } else {
       reject(new Error('Cannot locate package.json'));
