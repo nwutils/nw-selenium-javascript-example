@@ -10,5 +10,8 @@
 	"scripts": {
 		"start": "nw .",
 		"test": "node --test index.mjs"
+	},
+	"volta": {
+		"node": "20.7.0"
 	}
 }
