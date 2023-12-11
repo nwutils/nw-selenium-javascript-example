@@ -16,13 +16,13 @@ describe('NW.js Selenium test suite example', async () => {
         // Initialise Chrome options
         const options = new chrome.Options();
 
-        const seleniumArguments = [];
-
-        // File path to NW.js project (requires a
-        // package.json for an NW.js project).
-        // In this example, we assume the current
-        // working directory (cwd) to be the project root.
-        seleniumArguments.push(`nwapp=${process.cwd()}`);
+        const seleniumArguments = [
+            // File path to NW.js project (requires a
+            // package.json for an NW.js project).
+            // In this example, we assume the current
+            // working directory (cwd) to be the project root.
+            'nwapp=' + process.cwd()
+        ];
 
         // Run in headless mode when in CI environment.
         if (process.env.CI) {
@@ -64,5 +64,4 @@ describe('NW.js Selenium test suite example', async () => {
     after(() => {
         driver.quit();
     });
-
 });

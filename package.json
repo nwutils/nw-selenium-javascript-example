@@ -1,17 +1,18 @@
 {
-	"name": "nw-selenium-example",
-	"version": "1.0.0",
-	"main": "index.html",
-	"private": true,
-	"devDependencies": {
-		"nw": "0.82.0-sdk",
-		"selenium-webdriver": "^4.16.0"
-	},
-	"scripts": {
-		"start": "nw .",
-		"test": "node --test index.mjs"
-	},
-	"volta": {
-		"node": "20.7.0"
-	}
+  "name": "nw-selenium-example",
+  "version": "1.0.0",
+  "main": "index.html",
+  "private": true,
+  "devDependencies": {
+    "nw": "^0.82.0",
+    "selenium-webdriver": "^4.16.0"
+  },
+  "scripts": {
+    "start": "nw .",
+    "test": "node --test index.mjs",
+    "postinstall": "node base-volta-off-of-nw.mjs"
+  },
+  "volta": {
+    "node": "20.7.0"
+  }
 }
