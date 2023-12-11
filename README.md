@@ -4,7 +4,7 @@ An example of using Selenium for End-to-End testing of NW.js apps.
 
 > To understand how things works, please see the `./index.mjs` file. Explanation has been provided in the form of extensive code comments.
 
-[![Join the chat at https://gitter.im/nwjs/nw-builder](https://badges.gitter.im/repo.svg)](https://app.gitter.im/#/room/#nwjs_nw-builder:gitter.im)
+[![Join the chat at Gitter](https://badges.gitter.im/repo.svg)](https://app.gitter.im/#/room/#nwjs_nw.js:gitter.im)
 
 
 ## Getting Started
