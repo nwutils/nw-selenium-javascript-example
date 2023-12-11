@@ -4,7 +4,7 @@
 	"main": "index.html",
 	"private": true,
 	"devDependencies": {
-		"nw": "0.82.0-sdk",
+		"nw": "^0.82.0",
 		"selenium-webdriver": "^4.16.0"
 	},
 	"scripts": {
