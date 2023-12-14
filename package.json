@@ -10,7 +10,7 @@
   "scripts": {
     "start": "nw .",
     "test": "node --test index.mjs",
-    "postinstall": "node base-volta-off-of-nw.mjs"
+    "postinstall": "npx base-volta-off-of-nwjs"
   },
   "volta": {
     "node": "20.7.0"
