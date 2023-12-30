@@ -13,6 +13,6 @@
     "postinstall": "npx base-volta-off-of-nwjs@latest"
   },
   "volta": {
-    "node": "20.7.0"
+    "node": "21.1.0"
   }
 }
